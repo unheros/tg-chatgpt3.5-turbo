@@ -6,8 +6,8 @@ from pydantic import BaseModel
 
 
 class Role(str, Enum):
-    assistant = "assistant"
     system = "system"
+    assistant = "assistant"
     user = "user"
 
 
