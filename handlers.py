@@ -20,12 +20,21 @@ async def handler_start(message: Message) -> None:
 @router.message()
 async def handler_chat(message: Message, config: Config) -> None:
     async with ChatActionSender.typing(message.chat.id):
-        messages = [
+        messages = []
+        if message.reply_to_message:
+            content = message.reply_to_message.text
+            messages.append(
+                GPTMessage(
+                    role=Role.assistant,
+                    content=content
+                )
+            )
+        messages.append(
             GPTMessage(
                 role=Role.user,
                 content=message.text
             )
-        ]
+        )
         future = create_completion(config.OPENAI_TOKEN, messages)
         task = asyncio.create_task(future)
         
