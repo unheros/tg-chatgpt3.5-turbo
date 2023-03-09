@@ -5,7 +5,7 @@ Clone the repo
    ```sh
    git clone https://github.com/unheros/tg-chatgpt-gpt3.5-turbo.git
    ```
-* start
+Start
   ```python
   poetry install
   poetry run python bot
