@@ -23,7 +23,7 @@ async def handler_chat(message: Message, config: Config) -> None:
         messages = [
             GPTMessage(
                 role=Role.user,
-                content="hello"
+                content=message.text
             )
         ]
         future = create_completion(config.OPENAI_TOKEN, messages)
@@ -31,6 +31,6 @@ async def handler_chat(message: Message, config: Config) -> None:
         
         while True:
             if task.done():
-                await message.reply(task.result())
+                await message.reply(task.result().content)
                 return
             await asyncio.sleep(1)

@@ -13,6 +13,9 @@ aiogram = {version = "^3.0.0b7", allow-prereleases = true}
 pydantic = {extras = ["dotenv"], version = "^1.10.5"}
 
 
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.0.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
