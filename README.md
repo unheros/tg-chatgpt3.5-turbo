@@ -4,7 +4,7 @@
 
 Clone the repo
    ```sh
-   git clone https://github.com/unheros/tg-chatgpt-gpt3.5-turbo.git
+   git clone https://github.com/unheros/tg-chatgpt3.5-turbo.git
    ```
 Start
   ```python
