@@ -25,6 +25,5 @@ async def create_completion(
         model="gpt-3.5-turbo",
         messages=[msg.dict() for msg in messages]
     )
-    print(response)
     message_json = response["choices"][0]["message"]
     return Message.parse_obj(message_json)
