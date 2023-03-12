@@ -14,7 +14,7 @@ async def main() -> None:
     logger.setup_logging()
     config = Config()
 
-    bot = Bot(token=config.TG_BOT_TOKEN, parse_mode="markdown")
+    bot = Bot(token=config.TG_BOT_TOKEN, parse_mode="html")
     dp = Dispatcher()
 
     dp.include_router(router)
