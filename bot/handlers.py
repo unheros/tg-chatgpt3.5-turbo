@@ -35,11 +35,6 @@ async def handler_chat(message: Message, config: Config) -> None:
                 content=message.text
             )
         )
-        future = create_completion(config.OPENAI_TOKEN, messages)
-        task = asyncio.create_task(future)
+        out_msg = await create_completion(config.OPENAI_TOKEN, messages)
+        await message.reply(out_msg.content)
         
-        while True:
-            if task.done():
-                await message.reply(task.result().content)
-                return
-            await asyncio.sleep(1)
